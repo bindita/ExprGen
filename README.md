@@ -37,6 +37,11 @@ This will overwrite the original `Mery.mb` file (not recommended!). To avoid thi
 $ mayapy savetomaya.py -rename
 ```
 
+In case the terminal cannot run mayapy directly, you can specify the entire path to `mayapy.exe` to run it. On MacOS with MAYA version 2018, you can do:
+```
+$ /Applications/Autodesk/maya2018/Maya.app/Contents/bin/mayapy savetomaya.py -rename
+```
+
 ## Full usage:
 
 By default, the python file reads `input.csv` (input csv file) and `Mery.mb` (input rig file) from the current directory. Once you have the MAYA files and CSV files for all the four characters in our dataset, you can change the paths to the input files using:
