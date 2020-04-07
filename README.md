@@ -12,7 +12,7 @@ This repository contains python code to generate facial expressions on 3D MAYA r
 * `extractfrommaya.py`, which extracts rig parameters and their values from a 3D rig and saves them in a CSV file. (*coming soon!*)
 
 An example CSV file, `input.csv`, is provided in this repository. The format of the CSV files is as follows:
-- The first row contains the names of the parameters of the 3D rig.
+- The first row contains the names of the facial parameters of the 3D rig.
 - Each of the remaining rows contains the values of those parameters for a particular expression.
 - The first column contains the name of the expression. The expression category is mentioned within the name.
 
@@ -29,26 +29,31 @@ Fill the agreement form linked on the database webpage to get access to the full
 * Download the RAR file from [here](https://www.meryproject.com/download), extract the `.mb` (MAYA) file, and save it as `Mery.mb` in the current folder.
 
 * Run the following command from the terminal:
-
-`
+```
 $ mayapy savetomaya.py
-`
-
+```
 This will overwrite the original `Mery.mb` file (not recommended!). To avoid this, you can rename the file to be saved to `Mery_new.mb` using:
-
-`
+```
 $ mayapy savetomaya.py -rename
-`
-
-By default, the python file reads `input.csv` (input csv file) and `Mery.mb` (input rig file) from the current directory. In order to change their paths, you can use:
-
-`
-$ mayapy savetomaya.py -icsv /path/to/csv/file -irig /path/to/rig/file
-`
+```
 
 ## Full usage:
 
-Coming soon!
+By default, the python file reads `input.csv` (input csv file) and `Mery.mb` (input rig file) from the current directory. Once you have the MAYA files and CSV files for all the four characters in our dataset, you can change the paths to the input files using:
+```
+$ mayapy savetomaya.py -icsv /path/to/csv/file -irig /path/to/rig/file -rename
+```
+You can then open the newly generated MAYA file in MAYA and see the results. You can also [render](https://knowledge.autodesk.com/support/maya/learn-explore/caas/CloudHelp/cloudhelp/2019/ENU/Maya-Rendering/files/GUID-1F2C09E9-FBE1-4F18-9151-D7FF25D5CA12-htm.html) the current view to get the results in 2D.
+
+In case you animate the rig within MAYA (manipulate the rig parameter values), you can extract the new parameter values using:
+```
+$ mayapy extractfrommaya.py -char <character name> -irig /path/to/rig/file
+```
+For example, to extract parameter values for character `Mery` from `Meryfile.mb`, use:
+```
+$ mayapy extractfrommaya.py -char Mery -irig Meryfile.mb
+```
+and this will generate a CSV file named `Meryfile.csv` in the current directory.
 
 ## Citation:
 
