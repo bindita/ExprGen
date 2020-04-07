@@ -22,7 +22,7 @@ import csv, argparse, os
 
 ### Add input arguments
 parser = argparse.ArgumentParser()
-parser.add_argument('-icsv', '--inputcsv', default='input.csv', #'human_mery_anger copy', 'mery_test_seq
+parser.add_argument('-icsv', '--inputcsv', default='input.csv',
                     help='file name of input csv')
 parser.add_argument('-irig', '--inputrig', default='Mery.mb',
                     help='file name of input MAYA rig')
