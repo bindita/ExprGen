@@ -5,11 +5,13 @@
 <img src="https://homes.cs.washington.edu/~bindita/images/wacv2018.gif" width="500px">
 </p>
 
-This repository contains python code to generate facial expressions on 3D MAYA rigs. There are two files in this repository:
+This repository contains python code to generate facial expressions on 3D MAYA rigs. There are three files in this repository:
 
 * `savetomaya.py`, which reads the rig parameters and their values from a CSV file and sets the parameter values of the 3D rig.
 
-* `extractfrommaya.py`, which extracts rig parameters and their values from a 3D rig and saves them in a CSV file. (*coming soon!*)
+* `extractfrommaya.py`, which extracts rig parameters and their values from a 3D rig and saves them in a CSV file.
+
+* `renderfrommaya.py`, which renders a given time frame from the rig as an image.
 
 An example CSV file, `input.csv`, is provided in this repository. The format of the CSV files is as follows:
 - The first row contains the names of the facial parameters of the 3D rig.
@@ -59,6 +61,11 @@ For example, to extract parameter values for character `Mery` from `Meryfile.mb`
 $ mayapy extractfrommaya.py -char Mery -irig Meryfile.mb
 ```
 and this will generate a CSV file named `Meryfile.csv` in the current directory.
+
+To render a particular time frame using a particular camera (see inside the file for these settings), use:
+```
+$ mayapy renderfrommaya.py -irig /path/to/rig/file -dirname /path/to/folder/where/image/will/be/saved
+```
 
 ## Citation:
 
